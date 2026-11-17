@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>Дневник РИСО Севастополь — Смотров Денис</title>
+  <style>
+    :root {
+      --safe-top: max(env(safe-area-inset-top, 0px), 14px);
+      --safe-bottom: max(env(safe-area-inset-bottom, 0px), 10px);
+      --safe-left: env(safe-area-inset-left, 0px);
+      --safe-right: env(safe-area-inset-right, 0px);
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #0f172a;
+      color: #0f172a;
+      min-height: 100vh;
+    }
+    /* Автономная сетка и утилиты (работают мгновенно даже без внешних CDN) */
+    .hidden { display: none !important; }
+    .flex { display: flex; }
+    .inline-flex { display: inline-flex; }
+    .grid { display: grid; }
+    .flex-col { flex-direction: column; }
+    .flex-wrap { flex-wrap: wrap; }
+    .flex-1 { flex: 1 1 0%; }
+    .shrink-0 { flex-shrink: 0; }
+    .items-center { align-items: center; }
+    .items-start { align-items: flex-start; }
+    .items-end { align-items: flex-end; }
+    .justify-center { justify-content: center; }
+    .justify-between { justify-content: space-between; }
+    .justify-end { justify-content: flex-end; }
+    . justify-around { justify-content: space-around; }
+    .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    .gap-0\.5 { gap: 2px; }
+    .gap-1 { gap: 4px; }
+    .gap-1\.5 { gap: 6px; }
+    .gap-2 { gap: 8px; }
+    .gap-2\.5 { gap: 10px; }
+    .gap-3 { gap: 12px; }
+    .space-y-2 > * + * { margin-top: 8px; }
+    .space-y-2\.5 > * + * { margin-top: 10px; }
+    .space-y-3 > * + * { margin-top: 12px; }
+    .w-full { width: 100%; }
+    .max-w-md { max-width: 448px; }
+    .max-w-sm { max-width: 384px; }
+    .min-w-0 { min-width: 0; }
+    .w-2 { width: 8px; }
+    .h-2 { height: 8px; }
+    .w-4 { width: 16px; }
+    .h-4 { height: 16px; }
+    .w-5 { width: 20px; }
+    .h-5 { height: 20px; }
+    .w-7 { width: 28px; }
+    .h-7 { height: 28px; }
+    .w-10 { width: 40px; }
+    .h-10 { height: 40px; }
+    .p-1 { padding: 4px; }
+    .p-1\.5 { padding: 6px; }
+    .p-2 { padding: 8px; }
+    .p-2\.5 { padding: 10px; }
+    .p-3 { padding: 12px; }
+    .p-3\.5 { padding: 14px; }
+    .p-4 { padding: 16px; }
+    .p-5 { padding: 20px; }
+    .p-6 { padding: 24px; }
+    .px-1 { padding-left: 4px; padding-right: 4px; }
+    .px-1\.5 { padding-left: 6px; padding-right: 6px; }
+    .px-2 { padding-left: 8px; padding-right: 8px; }
+    .px-2\.5 { padding-left: 10px; padding-right: 10px; }
+    .px-3 { padding-left: 12px; padding-right: 12px; }
+    .px-3\.5 { padding-left: 14px; padding-right: 14px; }
+    .px-4 { padding-left: 16px; padding-right: 16px; }
+    .py-0\.5 { padding-top: 2px; padding-bottom: 2px; }
+    .py-1 { padding-top: 4px; padding-bottom: 4px; }
+    .py-1\.5 { padding-top: 6px; padding-bottom: 6px; }
+    .py-2 { padding-top: 8px; padding-bottom: 8px; }
+    .py-2\.5 { padding-top: 10px; padding-bottom: 10px; }
+    .pt-1 { padding-top: 4px; }
+    .pt-1\.5 { padding-top: 6px; }
+    .pt-2 { padding-top: 8px; }
+    .pb-1 { padding-bottom: 4px; }
+    .pb-2 { padding-bottom: 8px; }
+    .pb-3\.5 { padding-bottom: 14px; }
+    .pl-3 { padding-left: 12px; }
+    .pr-8 { padding-right: 32px; }
+    .mt-0\.5 { margin-top: 2px; }
+    .mt-1 { margin-top: 4px; }
+    .mt-1\.5 { margin-top: 6px; }
+    .mt-2\.5 { margin-top: 10px; }
+    .mb-1 { margin-bottom: 4px; }
+    .text-center { text-align: center; }
+    .text-left { text-align: left; }
+    .font-medium { font-weight: 500; }
+    .font-semibold { font-weight: 600; }
+    .font-bold { font-weight: 700; }
+    .uppercase { text-transform: uppercase; }
+    .tracking-wide { letter-spacing: 0.025em; }
+    .tracking-wider { letter-spacing: 0.05em; }
+    .leading-tight { line-height: 1.25; }
+    .leading-snug { line-height: 1.375; }
+    .leading-relaxed { line-height: 1.5; }
+    .truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .break-words { overflow-wrap: break-word; word-break: break-word; }
+    .select-none { user-select: none; }
+    .text-\[9px\] { font-size: 9px; }
+    .text-\[10px\] { font-size: 10px; }
+    .text-\[11px\] { font-size: 11px; }
+    .text-xs { font-size: 12px; line-height: 16px; }
+    .text-sm { font-size: 14px; line-height: 20px; }
+    .text-base { font-size: 16px; line-height: 24px; }
+    .text-lg { font-size: 18px; line-height: 26px; }
+    .rounded { border-radius: 4px; }
+    .rounded-md { border-radius: 6px; }
+    .rounded-lg { border-radius: 8px; }
+    .rounded-xl { border-radius: 12px; }
+    .rounded-2xl { border-radius: 16px; }
+    .rounded-3xl { border-radius: 24px; }
+    .rounded-full { border-radius: 9999px; }
+    .border { border: 1px solid #e2e8f0; }
+    .border-2 { border-width: 2px; border-style: solid; }
+    .border-dashed { border-style: dashed !important; }
+    .border-t { border-top: 1px solid #e2e8f0; }
+    .border-slate-100 { border-color: #f1f5f9; }
+    .border-slate-200, .border-slate-200\/80 { border-color: #e2e8f0; }
+    .border-blue-100 { border-color: #dbeafe; }
+    .border-blue-200 { border-color: #bfdbfe; }
+    .border-blue-300 { border-color: #93c5fd; }
+    .border-emerald-200 { border-color: #a7f3d0; }
+    .border-amber-200 { border-color: #fde68a; }
+    .border-indigo-100 { border-color: #e0e7ff; }
+    .border-indigo-400 { border-color: #818cf8; }
+    .border-white\/15 { border-color: rgba(255,255,255,0.15); }
+    .border-white\/25 { border-color: rgba(255,255,255,0.25); }
+    .bg-white { background-color: #ffffff; }
+    .bg-white\/10 { background-color: rgba(255,255,255,0.10); }
+    .bg-white\/15 { background-color: rgba(255,255,255,0.15); }
+    .bg-slate-50 { background-color: #f8fafc; }
+    .bg-slate-100, .bg-slate-100\/90 { background-color: #f1f5f9; }
+    .bg-slate-200\/80 { background-color: rgba(226,232,240,0.85); }
+    .bg-slate-900 { background-color: #0f172a; }
+    .bg-slate-900\/60 { background-color: rgba(15,23,42,0.65); }
+    .bg-blue-50, .bg-blue-50\/70 { background-color: #eff6ff; }
+    .bg-blue-50\/20 { background-color: rgba(239,246,255,0.45); }
+    .bg-blue-100 { background-color: #dbeafe; }
+    .bg-blue-600 { background-color: #2563eb; }
+    .bg-blue-700 { background-color: #1d4ed8; }
+    .bg-emerald-50 { background-color: #ecfdf5; }
+    .bg-emerald-100 { background-color: #d1fae5; }
+    .bg-emerald-400\/20 { background-color: rgba(52,211,153,0.22); }
+    .bg-emerald-400\/25 { background-color: rgba(52,211,153,0.28); }
+    .bg-amber-50 { background-color: #fffbeb; }
+    .bg-amber-100 { background-color: #fef3c7; }
+    .bg-amber-400\/25 { background-color: rgba(251,191,36,0.28); }
+    .bg-indigo-50 { background-color: #eef2ff; }
+    .bg-red-500 { background-color: #ef4444; }
+    .text-white { color: #ffffff; }
+    .text-slate-400 { color: #94a3b8; }
+    .text-slate-500 { color: #64748b; }
+    .text-slate-600 { color: #475569; }
+    .text-slate-700 { color: #334155; }
+    .text-slate-800 { color: #1e293b; }
+    .text-slate-900 { color: #0f172a; }
+    .text-blue-50 { color: #eff6ff; }
+    .text-blue-100 { color: #dbeafe; }
+    .text-blue-200 { color: #bfdbfe; }
+    .text-blue-600 { color: #2563eb; }
+    .text-blue-700 { color: #1d4ed8; }
+    .text-blue-800 { color: #1e40af; }
+    .text-emerald-100 { color: #d1fae5; }
+    .text-emerald-200 { color: #a7f3d0; }
+    .text-emerald-600 { color: #059669; }
+    .text-emerald-700 { color: #047857; }
+    .text-emerald-800 { color: #065f46; }
+    .text-amber-100 { color: #fef3c7; }
+    .text-amber-600 { color: #d97706; }
+    .text-amber-700 { color: #b45309; }
+    .text-amber-800 { color: #92400e; }
+    .text-indigo-600 { color: #4f46e5; }
+    .text-indigo-700 { color: #4338ca; }
+    .text-indigo-900 { color: #312e81; }
+    .shadow-sm { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); }
+    .shadow-md { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+    .shadow-xl { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15); }
+    .shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35); }
+    .relative { position: relative; }
+    .absolute { position: absolute; }
+    .fixed { position: fixed; }
+    .inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+    .top-0\.5 { top: 2px; }
+    .right-2\.5 { right: 10px; }
+    .bottom-20 { bottom: 80px; }
+    .left-1\/2 { left: 50%; }
+    .-translate-x-1\/2 { transform: translateX(-50%); }
+    .z-20 { z-index: 20; }
+    .z-40 { z-index: 40; }
+    .z-50 { z-index: 50; }
+    .overflow-hidden { overflow: hidden; }
+    .overflow-y-auto { overflow-y: auto; }
+    .overflow-x-auto { overflow-x: auto; }
+    button, a, select, input, textarea {
+      font-family: inherit;
+    }
+    button {
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+    a {
+      text-decoration: none;
+    }
+    svg {
+      display: block;
+      flex-shrink: 0;
+    }
+    .app-shell {
+      width: 100%;
+      max-width: 448px;
+      min-height: 100vh;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      background-color: #f8fafc;
+      position: relative;
+      padding-left: var(--safe-left);
+      padding-right: var(--safe-right);
+    }
+    @media (min-width: 640px) {
+      body {
+        padding: 20px 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+      }
+      .app-shell {
+        min-height: 820px;
+        max-height: 880px;
+        border-radius: 34px;
+        border: 6px solid #1e293b;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      }
+    }
+    .safe-top-header {
+      padding-top: calc(var(--safe-top) + 4px);
+    }
+    .safe-bottom-nav {
+      padding-bottom: calc(var(--safe-bottom) + 4px);
+      position: sticky;
+      bottom: 0;
+      background-color: #ffffff;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Адаптивный контейнер: на телефоне занимает 100% экрана с защитой от шторки, на ПК — аккуратная рамка смартфона -->
+  <div class="app-shell overflow-hidden">
+
+    <!-- Чистая шапка приложения с защитным отступом от верхней шторки и именем ученика -->
+    <header class="safe-top-header bg-blue-700 text-white px-3.5 pb-3.5 shadow-md shrink-0">
+      <div class="flex items-center justify-between gap-2">
+        <div class="flex items-center gap-2.5 min-w-0">
+          <div class="w-10 h-10 rounded-2xl bg-white/15 flex items-center justify-center font-bold text-xs shrink-0 border border-white/25" id="studentInitialsBadge">
+            ДС
+          </div>
+          <div class="min-w-0">
+            <div class="flex items-center gap-1.5">
+              <span class="text-[10px] uppercase tracking-wider font-semibold text-blue-200">Ученик:</span>
+              <span class="px-1.5 py-0.5 rounded bg-emerald-400/20 text-emerald-200 text-[9px] font-semibold">РИСО</span>
+            </div>
+            <h1 class="font-bold text-base leading-tight truncate mt-0.5" id="studentNameHeader" style="margin: 2px 0 0 0;">Смотров Денис</h1>
+            <p class="text-[11px] text-blue-100 truncate" id="studentSubHeader" style="margin: 2px 0 0 0;">3 «Б» класс • Школа «Экотех+»</p>
+          </div>
+        </div>
+
+        <div class="flex flex-col items-end gap-1 shrink-0">
+          <span id="weekStatusBadge" class="text-[11px] bg-white/15 text-blue-50 px-2.5 py-1 rounded-xl font-medium">
+            Текущая неделя
+          </span>
+        </div>
+      </div>
+
+      <!-- Быстрая сводка под шапкой (Средний балл и Новые письма) -->
+      <div class="grid grid-cols-2 gap-2 mt-2.5 pt-2 border-t border-white/15 text-center">
+        <div class="bg-white/10 rounded-xl py-1.5 px-2">
+          <div class="text-[10px] text-blue-100 truncate">Средний балл</div>
+          <div class="text-sm font-bold" id="topAvgGrade">4.67</div>
+        </div>
+        <div class="bg-white/10 rounded-xl py-1.5 px-2">
+          <div class="text-[10px] text-blue-100 truncate">Новых писем</div>
+          <div class="text-sm font-bold" id="topUnreadMail">2 новых</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Основная прокручиваемая область контента -->
+    <main class="flex-1 overflow-y-auto p-3 space-y-3" id="mainScrollArea">
+
+      <!-- ВКЛАДКА 1: РАСПИСАНИЕ (ПО ДНЯМ ИЛИ СРАЗУ НА ВСЮ НЕДЕЛЮ) -->
+      <section id="view-schedule" class="space-y-2.5">
+
+        <!-- Переключатель недель (Прошлые / Текущая / Будущие) -->
+        <div class="bg-white p-2 rounded-2xl shadow-sm border border-slate-200 flex items-center justify-between gap-1">
+          <button id="btnPrevWeek" type="button" class="px-2.5 py-2 rounded-xl bg-slate-100 text-slate-700 font-semibold text-xs flex items-center gap-1 shrink-0">
+            <span>←</span>
+            <span>Пред.</span>
+          </button>
+
+          <div class="text-center min-w-0 flex-1 px-1">
+            <div class="text-xs font-bold text-slate-800 truncate" id="weekRangeLabel">16 нояб. – 20 нояб.</div>
+            <div class="flex items-center justify-center gap-1.5 mt-0.5 flex-wrap">
+              <span class="text-[11px] text-slate-500" id="weekSubLabel">Текущая учебная неделя</span>
+              <button id="btnReturnCurrentWeek" type="button" class="hidden text-[10px] font-bold text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded-md">
+                Сегодня
+              </button>
+            </div>
+          </div>
+
+          <button id="btnNextWeek" type="button" class="px-2.5 py-2 rounded-xl bg-slate-100 text-slate-700 font-semibold text-xs flex items-center gap-1 shrink-0">
+            <span>След.</span>
+            <span>→</span>
+          </button>
+        </div>
+
+        <!-- Панель выбора: конкретный день (Пн-Пт) или кнопка «Вся неделя» -->
+        <div class="flex items-center gap-1 bg-white p-1.5 rounded-2xl shadow-sm border border-slate-200">
+          <div class="grid grid-cols-5 gap-1 flex-1" id="dayButtonsContainer">
+            <!-- Кнопки Пн..Пт генерируются через JS -->
+          </div>
+          <button id="btnWholeWeekMode" type="button" class="px-2.5 py-2 rounded-xl text-[11px] font-semibold shrink-0 bg-slate-100 text-slate-700">
+            Вся неделя
+          </button>
+        </div>
+
+        <!-- Подзаголовок выбранного режима (День или Вся неделя) -->
+        <div class="flex items-center justify-between px-1">
+          <div class="min-w-0">
+            <h2 class="text-sm font-bold text-slate-800 truncate" id="selectedDayTitle" style="margin: 0;">Понедельник, 16 ноября</h2>
+            <p class="text-[11px] text-slate-500 truncate" id="selectedDaySubtitle" style="margin: 2px 0 0 0;">Первая смена • Начало в 08:30</p>
+          </div>
+        </div>
+
+        <!-- Список уроков (на 1 день или сразу на всю неделю) -->
+        <div id="scheduleList" class="space-y-2.5 pb-2">
+          <!-- Генерируется через JS -->
+        </div>
+      </section>
+
+      <!-- ВКЛАДКА 2: ОЦЕНКИ -->
+      <section id="view-grades" class="space-y-3 hidden pb-2">
+        <!-- Карточки статистики оценок -->
+        <div class="grid grid-cols-3 gap-2">
+          <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-2.5 text-center">
+            <div class="text-[11px] text-emerald-700 font-medium">Пятёрок «5»</div>
+            <div class="text-lg font-bold text-emerald-700 mt-0.5" id="statCount5">0</div>
+          </div>
+          <div class="bg-blue-50 border border-blue-200 rounded-2xl p-2.5 text-center">
+            <div class="text-[11px] text-blue-700 font-medium">Четвёрок «4»</div>
+            <div class="text-lg font-bold text-blue-700 mt-0.5" id="statCount4">0</div>
+          </div>
+          <div class="bg-amber-50 border border-amber-200 rounded-2xl p-2.5 text-center">
+            <div class="text-[11px] text-amber-700 font-medium">Троек «3»</div>
+            <div class="text-lg font-bold text-amber-700 mt-0.5" id="statCount3">0</div>
+          </div>
+        </div>
+
+        <!-- Фильтр предметов -->
+        <div class="flex items-center justify-between gap-2">
+          <select id="gradeSubjectFilter" class="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs font-medium text-slate-700">
+            <option value="all">Все предметы (табель четверти)</option>
+          </select>
+        </div>
+
+        <!-- Подсказка симулятора -->
+        <div class="bg-indigo-50 border border-indigo-100 rounded-2xl p-3 flex items-center justify-between gap-2">
+          <div class="text-xs text-indigo-900">
+            <span class="font-semibold">Прогноз четверти:</span> нажми <span class="px-1.5 py-0.5 bg-white rounded font-bold text-emerald-600">+5</span> или <span class="px-1.5 py-0.5 bg-white rounded font-bold text-blue-600">+4</span>, чтобы рассчитать будущий средний балл.
+          </div>
+          <button id="btnResetSimGrades" type="button" class="text-[11px] font-semibold text-indigo-600 shrink-0">Сброс</button>
+        </div>
+
+        <!-- Таблица оценок по предметам -->
+        <div id="gradesList" class="space-y-2.5">
+          <!-- Генерируется через JS -->
+        </div>
+      </section>
+
+      <!-- ВКЛАДКА 3: ПОЧТА -->
+      <section id="view-mail" class="space-y-3 hidden pb-2">
+        <!-- Верхняя панель почты -->
+        <div class="flex items-center justify-between gap-2 flex-wrap">
+          <div class="flex bg-slate-200/80 p-1 rounded-xl text-[11px] font-medium flex-1" id="mailFilterTabs">
+            <button type="button" data-mail-filter="inbox" class="flex-1 px-2 py-1.5 rounded-lg bg-white text-slate-800 shadow-sm">Полученные</button>
+            <button type="button" data-mail-filter="unread" class="flex-1 px-2 py-1.5 rounded-lg text-slate-600">Непрочитанные</button>
+            <button type="button" data-mail-filter="sent" class="flex-1 px-2 py-1.5 rounded-lg text-slate-600">Отправленные</button>
+          </div>
+          <button id="btnComposeMail" type="button" class="px-3 py-2 bg-blue-600 text-white rounded-xl text-xs font-semibold shrink-0">
+            Написать
+          </button>
+        </div>
+
+        <!-- Поиск по письмам -->
+        <div class="relative">
+          <input id="mailSearchInput" type="text" placeholder="Поиск по учителю или теме письма..." class="w-full bg-white border border-slate-200 rounded-xl pl-3 pr-8 py-2 text-xs text-slate-800" />
+        </div>
+
+        <!-- Список писем -->
+        <div id="mailList" class="space-y-2">
+          <!-- Генерируется через JS -->
+        </div>
+      </section>
+
+      <!-- ВКЛАДКА 4: НОВОСТИ -->
+      <section id="view-news" class="space-y-3 hidden pb-2">
+        <!-- Категории новостей -->
+        <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1" id="newsCategoryTabs">
+          <button type="button" data-news-cat="all" class="px-3 py-1.5 rounded-xl bg-blue-600 text-white text-xs font-semibold shrink-0">Все новости</button>
+          <button type="button" data-news-cat="Школа" class="px-3 py-1.5 rounded-xl bg-white border border-slate-200 text-slate-700 text-xs font-medium shrink-0">Школа</button>
+          <button type="button" data-news-cat="Класс" class="px-3 py-1.5 rounded-xl bg-white border border-slate-200 text-slate-700 text-xs font-medium shrink-0">Наш класс</button>
+          <button type="button" data-news-cat="Спорт и кружки" class="px-3 py-1.5 rounded-xl bg-white border border-slate-200 text-slate-700 text-xs font-medium shrink-0">Спорт и кружки</button>
+          <button type="button" data-news-cat="saved" class="px-3 py-1.5 rounded-xl bg-white border border-slate-200 text-slate-700 text-xs font-medium shrink-0">Закладки</button>
+        </div>
+
+        <!-- Лента новостей -->
+        <div id="newsList" class="space-y-3">
+          <!-- Генерируется через JS -->
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Нижняя панель навигации Android с учётом нижней системной полосы жестов (safe-bottom-nav) -->
+    <nav class="safe-bottom-nav bg-white border-t border-slate-200 px-1 pt-1.5 grid grid-cols-5 items-center shrink-0 z-20 select-none">
+      <button type="button" data-tab="schedule" class="nav-tab-btn flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-blue-600 font-semibold text-[10px] gap-0.5 bg-blue-50/70">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        <span class="truncate">Расписание</span>
+      </button>
+
+      <button type="button" data-tab="grades" class="nav-tab-btn flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-slate-500 font-medium text-[10px] gap-0.5">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+        <span class="truncate">Оценки</span>
+      </button>
+
+      <button type="button" data-tab="mail" class="nav-tab-btn relative flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-slate-500 font-medium text-[10px] gap-0.5">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        <span class="truncate">Почта</span>
+        <span id="navMailBadge" class="absolute top-0.5 right-2.5 bg-red-500 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">2</span>
+      </button>
+
+      <button type="button" data-tab="news" class="nav-tab-btn flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-slate-500 font-medium text-[10px] gap-0.5">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+        <span class="truncate">Новости</span>
+      </button>
+
+      <!-- Прямая кнопка перехода на браузерную версию РИСО Севастополь -->
+      <a id="navDirectSiteBtn" href="https://riso.sev.gov.ru/journal-app/u.11553" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-slate-500 font-medium text-[10px] gap-0.5" title="Открыть https://riso.sev.gov.ru/journal-app/u.11553 в браузере">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        <span class="truncate">Сайт</span>
+      </a>
+    </nav>
+
+    <!-- МОДАЛЬНОЕ ОКНО: НАПИСАТЬ ПИСЬМО -->
+    <div id="modalComposeMail" class="fixed inset-0 bg-slate-900/60 z-40 hidden items-center justify-center p-4">
+      <div class="bg-white rounded-3xl max-w-sm w-full p-5 shadow-2xl space-y-3">
+        <div class="flex items-center justify-between">
+          <h3 class="font-bold text-sm text-slate-800" style="margin: 0;">Новое сообщение учителю</h3>
+          <button type="button" data-close-modal="modalComposeMail" class="text-slate-400 text-lg font-bold px-2">✕</button>
+        </div>
+        <form id="composeMailForm" class="space-y-3">
+          <div>
+            <label class="text-xs font-medium text-slate-600 mb-1" style="display:block;">Кому</label>
+            <select id="mailRecipientInput" class="w-full border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-800">
+              <option value="Классный руководитель">Классный руководитель</option>
+              <option value="Учитель музыки">Учитель музыки</option>
+              <option value="Учитель английского языка">Учитель английского языка</option>
+              <option value="Учебная часть школы">Учебная часть школы</option>
+            </select>
+          </div>
+          <div>
+            <label class="text-xs font-medium text-slate-600 mb-1" style="display:block;">Тема</label>
+            <input id="mailSubjectInput" type="text" required placeholder="Вопрос по домашнему заданию..." class="w-full border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-800" />
+          </div>
+          <div>
+            <label class="text-xs font-medium text-slate-600 mb-1" style="display:block;">Текст сообщения</label>
+            <textarea id="mailBodyInput" rows="3" required placeholder="Здравствуйте! Подскажите, пожалуйста..." class="w-full border border-slate-200 rounded-xl p-2.5 text-xs text-slate-800"></textarea>
+          </div>
+          <button type="submit" class="w-full py-2.5 rounded-xl bg-blue-600 text-white font-semibold text-xs">
+            Отправить сообщение
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ВСПЛЫВАЮЩЕЕ УВЕДОМЛЕНИЕ (TOAST) -->
+    <div id="toastBanner" class="fixed bottom-20 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-xs font-medium px-4 py-2.5 rounded-2xl shadow-xl z-50 hidden">
+      Готово!
+    </div>
+
+  </div>
+
+  <script>
+    // ==========================================
+    // 1. ХРАНИЛИЩЕ ДАННЫХ ПРИЛОЖЕНИЯ (STATE)
+    // ==========================================
+    const baseTemplateSchedule = {
+      "Пн": [
+        { num: 7, time: "13:30–14:00", subject: "Музыка", room: "Осн.", baseHw: "Без задания", baseGrade: 5, topic: "Вокальная музыка. В детской. Игры и игрушки" },
+        { num: 8, time: "14:20–14:50", subject: "Иностранный язык (английский)", room: "Осн.", baseHw: "Стр 42 Упр 1", baseGrade: null, topic: "У него длинные уши! – А у нее короткий хвост!" },
+        { num: 9, time: "15:00–15:30", subject: "Русский язык", room: "Осн.", baseHw: "Повторить словарные слова", baseGrade: 5, topic: "Сочинение по картине И.Т. Хруцкого «Цветы и плоды»" },
+        { num: 10, time: "15:40–16:10", subject: "Математика", room: "Осн.", baseHw: "Без задания", baseGrade: null, topic: "Площадь и приемы её нахождения" },
+        { num: "Доп", time: "13:45–14:15", subject: "Разговоры о важном", room: "Внеур.", baseHw: "Без задания", baseGrade: null, topic: "" }
+      ],
+      "Вт": [
+        { num: 6, time: "12:10–12:40", subject: "Хореография", room: "Осн.", baseHw: "Без задания", baseGrade: null, topic: "" },
+        { num: 7, time: "12:50–13:20", subject: "Математика", room: "Осн.", baseHw: "Стр. 55 № 9", baseGrade: null, topic: "" },
+        { num: 8, time: "13:40–14:10", subject: "Русский язык", room: "Осн.", baseHw: "Стр. 59-60 (выучить правила), Стр. 59 Упр. 106", baseGrade: null, topic: "" },
+        { num: 9, time: "14:20–14:50", subject: "Литер. чтение", room: "Осн.", baseHw: "Стр. 64-65 (выучить любое из 3 наизусть)", baseGrade: null, topic: "" },
+        { num: 10, time: "15:00–15:30", subject: "Окруж. мир", room: "Осн.", baseHw: "Стр. 58-60 (читать), Рабочая тетрадь Стр. 25-26", baseGrade: null, topic: "" }
+      ],
+      "Ср": [
+        { num: 6, time: "12:10–12:40", subject: "Математика", room: "Осн.", baseHw: "Без задания", baseGrade: null, topic: "" },
+        { num: 7, time: "12:50–13:20", subject: "Русский язык", room: "Осн.", baseHw: "Без задания", baseGrade: null, topic: "" },
+        { num: 8, time: "13:40–14:10", subject: "Физкультура", room: "Осн.", baseHw: "Без задания", baseGrade: null, topic: "" },
+        { num: 9, time: "14:20–14:50", subject: "Литер. чтение", room: "Осн.", baseHw: "Без задания", baseGrade: null, topic: "" },
+        { num: 10, time: "15:00–15:30", subject: "Труд (технология)", room: "Осн.", baseHw: "Без задания", baseGrade: null, topic: "" }
+      ],
+      "Чт": [
+        { num: 6, time: "12:10–12:40", subject: "Математика", room: "Осн.", baseHw: "Без задания", baseGrade: null, topic: "" },
+        { num: 7, time: "12:50–13:20", subject: "Русский язык", room: "Осн.", baseHw: "Без задания", baseGrade: null, topic: "" },
+        { num: 8, time: "13:40–14:10", subject: "Физкультура", room: "Осн.", baseHw: "Без задания", baseGrade: null, topic: "" },
+        { num: 9, time: "14:20–14:50", subject: "Литер. чтение", room: "Осн.", baseHw: "Без задания", baseGrade: null, topic: "" },
+        { num: 10, time: "15:00–15:30", subject: "Окруж. мир", room: "Осн.", baseHw: "Без задания", baseGrade: null, topic: "" },
+        { num: "Доп", time: "18:10–18:40", subject: "Севастополеведение", room: "Внеур.", baseHw: "Без задания", baseGrade: null, topic: "" }
+      ],
+      "Пт": [
+        { num: 6, time: "12:10–12:40", subject: "Прикладная математика", room: "Осн.", baseHw: "Без задания", baseGrade: null, topic: "" },
+        { num: 7, time: "12:50–13:20", subject: "Иностранный язык (английский)", room: "Осн.", baseHw: "Стр 42 номер 2 и опрос по теории письменно", baseGrade: null, topic: "" },
+        { num: 8, time: "13:40–14:10", subject: "Русский язык", room: "Осн.", baseHw: "Без задания", baseGrade: null, topic: "" },
+        { num: 9, time: "14:20–14:50", subject: "Литер. чтение", room: "Осн.", baseHw: "Без задания", baseGrade: null, topic: "" },
+        { num: 10, time: "15:00–15:30", subject: "ИЗО", room: "Осн.", baseHw: "Без задания", baseGrade: null, topic: "" }
+      ]
+    };
+
+    const initialData = {
+      studentName: "Смотров Денис Дмитриевич",
+      studentClass: "ГБОУ «ШКОЛА ЭКОТЕХ » • II четверть",
+      portalUrl: "https://riso.sev.gov.ru/journal-app/u.11553",
+      activeTab: "schedule",
+      weekOffset: 0,
+      scheduleViewMode: "day",
+      selectedDay: "Пн",
+      mailFilter: "inbox",
+      mailSearch: "",
+      newsCategory: "all",
+      weeksSchedule: {},
+      grades: [
+        { subject: "ИЗО", scores: [5], simScores: [] },
+        { subject: "Иностранный язык (английский)", scores: [5], simScores: [] },
+        { subject: "Литер. чтение", scores: [], simScores: [] },
+        { subject: "Математика", scores: [5], simScores: [] },
+        { subject: "Музыка", scores: [5, 5], simScores: [] },
+        { subject: "Окруж. мир", scores: [4], simScores: [] },
+        { subject: "Прикладная математика", scores: [], simScores: [] },
+        { subject: "Русский язык", scores: [5, 5], simScores: [] },
+        { subject: "Труд (технология)", scores: [], simScores: [] },
+        { subject: "Физкультура", scores: [], simScores: [] },
+        { subject: "Хореография", scores: [], simScores: [] }
+      ],
+      mails: [
+        {
+          id: "mail-543385",
+          folder: "inbox",
+          sender: "Бекирова Лиля Мидатовна (Музыка)",
+          subject: "Re: Дисциплина",
+          date: "13.10.2026, 18:54",
+          unread: false,
+          body: "Дмитрий Владимирович, я понимаю Ваше беспокойство. И держать во внимании класс из 36 и более человек требует от учителя много усилий..."
+        },
+        {
+          id: "mail-sent-1",
+          folder: "sent",
+          sender: "Вы → Бекирова Л. М.",
+          subject: "Re: Дисциплина",
+          date: "13.10.2026, 13:19",
+          unread: false,
+          body: "Лиля Мидатовна, здравствуйте. Прошу объективно посмотреть на ситуацию..."
+        }
+      ],
+      news: [
+        {
+          id: "board-1",
+          category: "Школа",
+          date: "с 12 ноября по 28 ноября",
+          title: "Региональная олимпиада школьников по игровому программированию 2026-2027",
+          summary: "Информируем вас о проведении Региональной олимпиады школьников по игровому программированию на платформе SNILBot (участие бесплатное).",
+          saved: false
+        },
+        {
+          id: "board-2",
+          category: "Школа",
+          date: "с 9 ноября по 4 декабря",
+          title: "Старт курса внеурочной деятельности «Искусственный интеллект»",
+          summary: "В нашей школе стартует новый курс внеурочной деятельности «Искусственный интеллект»!",
+          saved: false
+        }
+      ]
+    };
+
+    let state = JSON.parse(JSON.stringify(initialData));
+
+    try {
+      const saved = localStorage.getItem("school_diary_riso_v8");
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed && parsed.grades) {
+          state = Object.assign(state, parsed);
+        }
+      }
+    } catch (e) {
+      // Игнорируем ограничения хранилища
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem("school_diary_riso_v8", JSON.stringify(state));
+      } catch (e) {
+        // Игнорируем ограничения хранилища
+      }
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById("toastBanner");
+      toast.textContent = message;
+      toast.classList.remove("hidden");
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(() => {
+        toast.classList.add("hidden");
+      }, 2500);
+    }
+
+    // ==========================================
+    // 2. ГЕНЕРАТОР ДАТ И РАСПИСАНИЯ ДЛЯ ЛЮБОЙ НЕДЕЛИ
+    // ==========================================
+    const monthsShort = ["янв.", "февр.", "марта", "апр.", "мая", "июня", "июля", "авг.", "сент.", "окт.", "нояб.", "дек."];
+    const monthsFull = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];
+    const dayFullNames = {
+      "Пн": "Понедельник",
+      "Вт": "Вторник",
+      "Ср": "Среда",
+      "Чт": "Четверг",
+      "Пт": "Пятница"
+    };
+    const dayIndexMap = { "Пн": 0, "Вт": 1, "Ср": 2, "Чт": 3, "Пт": 4 };
+
+    function getMondayForOffset(weekOffset) {
+      const baseMonday = new Date(2026, 10, 16);
+      baseMonday.setDate(baseMonday.getDate() + weekOffset * 7);
+      return baseMonday;
+    }
+
+    function ensureWeekScheduleExists(weekOffset) {
+      const key = String(weekOffset);
+      if (!state.weeksSchedule) state.weeksSchedule = {};
+      if (state.weeksSchedule[key]) return state.weeksSchedule[key];
+
+      const weekObj = {};
+      const days = ["Пн", "Вт", "Ср", "Чт", "Пт"];
+      days.forEach((d, dIdx) => {
+        const template = baseTemplateSchedule[d] || [];
+        weekObj[d] = template.map((item, idx) => {
+          const isPastWeek = weekOffset < 0;
+          const isCurrentWeek = weekOffset === 0;
+          const isFutureWeek = weekOffset > 0;
+
+          let gradeVal = null;
+          if (isPastWeek) {
+            gradeVal = item.baseGrade || ((idx + dIdx + Math.abs(weekOffset)) % 2 === 0 ? 5 : 4);
+          } else if (isCurrentWeek) {
+            gradeVal = item.baseGrade;
+          } else if (isFutureWeek) {
+            gradeVal = null;
+          }
+
+          const pageNum = 54 + weekOffset * 6 + dIdx + idx;
+          const hwText = item.baseHw;
+
+          return {
+            id: `w${weekOffset}_${d}_${item.num}`,
+            num: item.num,
+            time: item.time,
+            subject: item.subject,
+            room: item.room,
+            hw: hwText,
+            topic: item.topic || "",
+            grade: gradeVal
+          };
+        });
+      });
+
+      state.weeksSchedule[key] = weekObj;
+      return weekObj;
+    }
+
+    // ==========================================
+    // 3. РЕНДЕР ШАПКИ И СВОДКИ
+    // ==========================================
+    function computeAllAverages() {
+      let totalSum = 0;
+      let totalCount = 0;
+      let count5 = 0;
+      let count4 = 0;
+      let count3 = 0;
+
+      state.grades.forEach(item => {
+        const all = item.scores.concat(item.simScores || []);
+        all.forEach(s => {
+          totalSum += s;
+          totalCount += 1;
+          if (s === 5) count5++;
+          else if (s === 4) count4++;
+          else if (s <= 3) count3++;
+        });
+      });
+
+      const avg = totalCount > 0 ? (totalSum / totalCount).toFixed(2) : "0.00";
+      return { avg, count5, count4, count3 };
+    }
+
+    function renderHeaderStats() {
+      const nameStr = state.studentName || "Смотров Денис";
+      document.getElementById("studentNameHeader").textContent = nameStr;
+      document.getElementById("studentSubHeader").textContent = state.studentClass;
+
+      const parts = nameStr.trim().split(/\s+/);
+      const initials = parts.length >= 2
+        ? (parts[0][0] + parts[1][0]).toUpperCase()
+        : nameStr.slice(0, 2).toUpperCase();
+      document.getElementById("studentInitialsBadge").textContent = initials;
+
+      const { avg, count5, count4, count3 } = computeAllAverages();
+      document.getElementById("topAvgGrade").textContent = avg;
+
+
+
+      const unreadCount = state.mails.filter(m => m.folder === "inbox" && m.unread).length;
+      document.getElementById("topUnreadMail").textContent = unreadCount + " новых";
+
+      const badge = document.getElementById("navMailBadge");
+      if (unreadCount > 0) {
+        badge.textContent = String(unreadCount);
+        badge.classList.remove("hidden");
+      } else {
+        badge.classList.add("hidden");
+      }
+
+      document.getElementById("statCount5").textContent = String(count5);
+      document.getElementById("statCount4").textContent = String(count4);
+      document.getElementById("statCount3").textContent = String(count3);
+
+      const weekStatusBadge = document.getElementById("weekStatusBadge");
+      if (state.weekOffset === 0) {
+        weekStatusBadge.textContent = "Текущая неделя";
+        weekStatusBadge.className = "text-[11px] bg-white/15 text-blue-50 px-2.5 py-1 rounded-xl font-medium";
+      } else if (state.weekOffset < 0) {
+        weekStatusBadge.textContent = `Прошлая (${state.weekOffset})`;
+        weekStatusBadge.className = "text-[11px] bg-amber-400/25 text-amber-100 px-2.5 py-1 rounded-xl font-medium";
+      } else {
+        weekStatusBadge.textContent = `Будущая (+${state.weekOffset})`;
+        weekStatusBadge.className = "text-[11px] bg-emerald-400/25 text-emerald-100 px-2.5 py-1 rounded-xl font-medium";
+      }
+    }
+
+    // ==========================================
+    // 4. РЕНДЕР ВКЛАДКИ «РАСПИСАНИЕ» (ДЕНЬ ИЛИ ВСЯ НЕДЕЛЯ)
+    // ==========================================
+    function buildLessonItemHtml(lesson, offset) {
+      const gradeBadge = lesson.grade
+        ? `<span class="px-2.5 py-0.5 rounded-lg font-bold text-xs shrink-0 ${lesson.grade === 5 ? 'bg-emerald-100 text-emerald-700' : 'bg-blue-100 text-blue-700'}">${lesson.grade}</span>`
+        : `<span class="text-[11px] text-slate-400 font-medium shrink-0">${offset > 0 ? 'По плану' : (lesson.room || '')}</span>`;
+
+      const topicHtml = lesson.topic
+        ? `<div class="text-[11px] text-slate-500 mt-1"><span class="font-semibold">Тема:</span> ${lesson.topic}</div>`
+        : "";
+
+      return `
+        <div class="bg-white rounded-2xl p-3 shadow-sm border border-slate-200 flex items-start gap-2.5">
+          <div class="w-7 h-7 rounded-xl bg-blue-50 text-blue-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+            ${lesson.num}
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center justify-between gap-2">
+              <h4 class="font-bold text-sm text-slate-800 truncate" style="margin:0;">${lesson.subject}</h4>
+              ${gradeBadge}
+            </div>
+            <div class="text-[11px] text-slate-400 mt-0.5">${lesson.time}${lesson.room ? ' • ' + lesson.room : ''}</div>
+            ${topicHtml}
+            <div class="mt-1.5 bg-slate-50 px-2.5 py-1.5 rounded-xl text-xs text-slate-700 break-words">
+              <span class="font-semibold text-slate-500">ДЗ:</span> ${lesson.hw}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderSchedule() {
+      const offset = state.weekOffset || 0;
+      const monday = getMondayForOffset(offset);
+      const friday = new Date(monday);
+      friday.setDate(monday.getDate() + 4);
+
+      const rangeText = `${monday.getDate()} ${monthsShort[monday.getMonth()]} – ${friday.getDate()} ${monthsShort[friday.getMonth()]}`;
+      document.getElementById("weekRangeLabel").textContent = rangeText;
+
+      const subLabel = document.getElementById("weekSubLabel");
+      const btnToday = document.getElementById("btnReturnCurrentWeek");
+      if (offset === 0) {
+        subLabel.textContent = "Текущая учебная неделя";
+        btnToday.classList.add("hidden");
+      } else if (offset === -1) {
+        subLabel.textContent = "Прошлая неделя";
+        btnToday.classList.remove("hidden");
+      } else if (offset < -1) {
+        subLabel.textContent = `${Math.abs(offset)} нед. назад`;
+        btnToday.classList.remove("hidden");
+      } else if (offset === 1) {
+        subLabel.textContent = "Следующая неделя";
+        btnToday.classList.remove("hidden");
+      } else {
+        subLabel.textContent = `Через ${offset} нед.`;
+        btnToday.classList.remove("hidden");
+      }
+
+      const days = ["Пн", "Вт", "Ср", "Чт", "Пт"];
+      const dayContainer = document.getElementById("dayButtonsContainer");
+      dayContainer.innerHTML = "";
+
+      const isWeekMode = state.scheduleViewMode === "week";
+      const btnWholeWeek = document.getElementById("btnWholeWeekMode");
+      btnWholeWeek.className = isWeekMode
+        ? "px-2.5 py-2 rounded-xl text-[11px] font-bold shrink-0 bg-blue-600 text-white shadow-sm"
+        : "px-2.5 py-2 rounded-xl text-[11px] font-semibold shrink-0 bg-slate-100 text-slate-700";
+
+      days.forEach((d, idx) => {
+        const dDate = new Date(monday);
+        dDate.setDate(monday.getDate() + idx);
+        const isSelected = !isWeekMode && d === state.selectedDay;
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = isSelected
+          ? "py-1 rounded-xl bg-blue-600 text-white font-bold text-xs shadow-sm flex flex-col items-center justify-center"
+          : "py-1 rounded-xl text-slate-600 font-medium text-xs flex flex-col items-center justify-center";
+        btn.innerHTML = `<span>${d}</span><span class="text-[10px] ${isSelected ? 'text-blue-100' : 'text-slate-400'}">${dDate.getDate()}</span>`;
+        btn.addEventListener("click", () => {
+          state.scheduleViewMode = "day";
+          state.selectedDay = d;
+          saveState();
+          renderSchedule();
+          renderHeaderStats();
+        });
+        dayContainer.appendChild(btn);
+      });
+
+      const weekData = ensureWeekScheduleExists(offset);
+      const listEl = document.getElementById("scheduleList");
+      listEl.innerHTML = "";
+
+      if (isWeekMode) {
+        document.getElementById("selectedDayTitle").textContent = `Расписание на всю неделю (${rangeText})`;
+        document.getElementById("selectedDaySubtitle").textContent = `Ученик: ${state.studentName} • Все 5 учебных дней`;
+
+        days.forEach((d, idx) => {
+          const dDate = new Date(monday);
+          dDate.setDate(monday.getDate() + idx);
+          const dayLessons = weekData[d] || [];
+
+          const dayBlock = document.createElement("div");
+          dayBlock.className = "bg-slate-100 border border-slate-200 rounded-2xl p-2.5 space-y-2";
+          const lessonsMarkup = dayLessons.map(l => buildLessonItemHtml(l, offset)).join("");
+
+          dayBlock.innerHTML = `
+            <div class="flex items-center justify-between px-1">
+              <h3 class="font-bold text-xs text-blue-800 uppercase tracking-wide" style="margin:0;">
+                ${dayFullNames[d]}, ${dDate.getDate()} ${monthsFull[dDate.getMonth()]}
+              </h3>
+              <span class="text-[11px] text-slate-500 font-medium">${dayLessons.length} ур.</span>
+            </div>
+            <div class="space-y-2">
+              ${lessonsMarkup}
+            </div>
+          `;
+          listEl.appendChild(dayBlock);
+        });
+      } else {
+        const selectedIdx = dayIndexMap[state.selectedDay] || 0;
+        const selectedDate = new Date(monday);
+        selectedDate.setDate(monday.getDate() + selectedIdx);
+        const lessons = weekData[state.selectedDay] || [];
+
+        document.getElementById("selectedDayTitle").textContent =
+          `${dayFullNames[state.selectedDay]}, ${selectedDate.getDate()} ${monthsFull[selectedDate.getMonth()]}`;
+        document.getElementById("selectedDaySubtitle").textContent =
+          `Вторая смена • ${lessons.length} ур. • РИСО`;
+
+        listEl.innerHTML = lessons.map(l => buildLessonItemHtml(l, offset)).join("");
+      }
+    }
+
+    // ==========================================
+    // 5. РЕНДЕР ВКЛАДКИ «ОЦЕНКИ»
+    // ==========================================
+    function populateSubjectDropdowns() {
+      const filterSelect = document.getElementById("gradeSubjectFilter");
+      const currentVal = filterSelect.value || "all";
+      filterSelect.innerHTML = `<option value="all">Все предметы (${state.grades.length})</option>`;
+
+      state.grades.forEach(g => {
+        const opt1 = document.createElement("option");
+        opt1.value = g.subject;
+        opt1.textContent = g.subject;
+        filterSelect.appendChild(opt1);
+      });
+
+      filterSelect.value = currentVal;
+    }
+
+    function renderGrades() {
+      const filterVal = document.getElementById("gradeSubjectFilter").value;
+      const container = document.getElementById("gradesList");
+      container.innerHTML = "";
+
+      const items = filterVal === "all"
+        ? state.grades
+        : state.grades.filter(g => g.subject === filterVal);
+
+      items.forEach(item => {
+        const allScores = item.scores.concat(item.simScores || []);
+        const sum = allScores.reduce((a, b) => a + b, 0);
+        const avg = allScores.length ? (sum / allScores.length).toFixed(2) : "—";
+        const numAvg = parseFloat(avg) || 0;
+
+        const badgeColor = numAvg >= 4.5
+          ? "bg-emerald-100 text-emerald-800"
+          : numAvg >= 3.5
+          ? "bg-blue-100 text-blue-800"
+          : "bg-amber-100 text-amber-800";
+
+        const card = document.createElement("div");
+        card.className = "bg-white rounded-2xl p-3.5 shadow-sm border border-slate-200 space-y-2.5";
+
+        const badgesHtml = item.scores.map(s => {
+          const c = s === 5 ? "bg-emerald-50 text-emerald-700 border-emerald-200"
+                  : s === 4 ? "bg-blue-50 text-blue-700 border-blue-200"
+                  : "bg-amber-50 text-amber-700 border-amber-200";
+          return `<span class="w-7 h-7 rounded-lg border ${c} font-bold text-xs flex items-center justify-center">${s}</span>`;
+        }).join("");
+
+        const simBadgesHtml = (item.simScores || []).map(s => {
+          return `<span class="w-7 h-7 rounded-lg border-2 border-dashed border-indigo-400 bg-indigo-50 text-indigo-700 font-bold text-xs flex items-center justify-center" title="Прогнозная оценка">${s}*</span>`;
+        }).join("");
+
+        card.innerHTML = `
+          <div class="flex items-center justify-between gap-2">
+            <div class="min-w-0">
+              <h3 class="font-bold text-sm text-slate-800 truncate" style="margin:0;">${item.subject}</h3>
+              <p class="text-[11px] text-slate-400" style="margin:2px 0 0 0;">Оценок за четверть: ${allScores.length}</p>
+            </div>
+            <div class="flex items-center gap-1.5 shrink-0">
+              <button type="button" data-sim-subject="${item.subject}" data-sim-val="5" class="px-2 py-1 rounded-lg bg-emerald-50 text-emerald-700 font-bold text-xs" title="Примерить пятёрку">+5</button>
+              <button type="button" data-sim-subject="${item.subject}" data-sim-val="4" class="px-2 py-1 rounded-lg bg-blue-50 text-blue-700 font-bold text-xs" title="Примерить четвёрку">+4</button>
+              <span class="px-2.5 py-1 rounded-xl font-bold text-xs ${badgeColor}">${avg}</span>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-1">
+            ${badgesHtml}
+            ${simBadgesHtml}
+          </div>
+        `;
+        container.appendChild(card);
+      });
+
+      container.querySelectorAll("[data-sim-subject]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const subj = btn.getAttribute("data-sim-subject");
+          const val = parseInt(btn.getAttribute("data-sim-val"), 10);
+          const target = state.grades.find(g => g.subject === subj);
+          if (target) {
+            target.simScores = target.simScores || [];
+            target.simScores.push(val);
+            saveState();
+            renderGrades();
+            renderHeaderStats();
+            showToast(`Прогнозная «${val}» добавлена к предмету ${subj}`);
+          }
+        });
+      });
+    }
+
+    // ==========================================
+    // 6. РЕНДЕР ВКЛАДКИ «ПОЧТА»
+    // ==========================================
+    function renderMail() {
+      const listEl = document.getElementById("mailList");
+      listEl.innerHTML = "";
+
+      const query = (state.mailSearch || "").trim().toLowerCase();
+      const filtered = state.mails.filter(m => {
+        if (state.mailFilter === "inbox" && m.folder !== "inbox") return false;
+        if (state.mailFilter === "sent" && m.folder !== "sent") return false;
+        if (state.mailFilter === "unread" && (!m.unread || m.folder !== "inbox")) return false;
+        if (query) {
+          const hay = (m.sender + " " + m.subject + " " + m.body).toLowerCase();
+          return hay.includes(query);
+        }
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        listEl.innerHTML = `
+          <div class="bg-white rounded-2xl p-6 text-center border border-slate-200 text-xs text-slate-500">
+            В этой папке пока нет писем по вашему запросу.
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach(mail => {
+        const card = document.createElement("div");
+        card.className = `bg-white rounded-2xl p-3.5 shadow-sm border ${mail.unread ? 'border-blue-300 bg-blue-50/20' : 'border-slate-200'}`;
+        card.innerHTML = `
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex items-center gap-2 min-w-0">
+              ${mail.unread ? '<span class="w-2 h-2 rounded-full bg-blue-600 shrink-0"></span>' : ''}
+              <span class="text-xs font-bold text-slate-800 truncate">${mail.sender}</span>
+            </div>
+            <span class="text-[11px] text-slate-400 shrink-0">${mail.date}</span>
+          </div>
+          <h4 class="text-xs font-semibold text-slate-900 mt-1" style="margin-bottom:0;">${mail.subject}</h4>
+          <p class="text-xs text-slate-600 mt-1 leading-relaxed break-words" style="margin-bottom:0;">${mail.body}</p>
+          <div class="flex items-center justify-end gap-2 mt-2.5 pt-2 border-t border-slate-100 flex-wrap">
+            ${mail.folder === "inbox" ? `
+              <button type="button" data-toggle-read="${mail.id}" class="text-[11px] font-medium text-slate-500">
+                ${mail.unread ? "Отметить прочитанным" : "Пометить новым"}
+              </button>
+              <button type="button" data-quick-reply="${mail.id}" class="text-[11px] font-semibold text-blue-600">
+                Быстрый ответ: «Спасибо, принято!»
+              </button>
+            ` : `<span class="text-[11px] text-emerald-600 font-medium">✓ Доставлено</span>`}
+          </div>
+        `;
+        listEl.appendChild(card);
+      });
+
+      listEl.querySelectorAll("[data-toggle-read]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const id = btn.getAttribute("data-toggle-read");
+          const target = state.mails.find(m => m.id === id);
+          if (target) {
+            target.unread = !target.unread;
+            saveState();
+            renderMail();
+            renderHeaderStats();
+          }
+        });
+      });
+
+      listEl.querySelectorAll("[data-quick-reply]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const id = btn.getAttribute("data-quick-reply");
+          const target = state.mails.find(m => m.id === id);
+          if (target) {
+            target.unread = false;
+            state.mails.unshift({
+              id: "mail-" + Date.now(),
+              folder: "sent",
+              sender: "Вы → " + target.sender,
+              subject: "Re: " + target.subject,
+              date: "Только что",
+              unread: false,
+              body: "Здравствуйте! Спасибо за информацию, приняли к сведению."
+            });
+            saveState();
+            renderMail();
+            renderHeaderStats();
+            showToast("Ответ отправлен учителю!");
+          }
+        });
+      });
+    }
+
+    // ==========================================
+    // 7. РЕНДЕР ВКЛАДКИ «НОВОСТИ»
+    // ==========================================
+    function renderNews() {
+      const listEl = document.getElementById("newsList");
+      listEl.innerHTML = "";
+
+      const items = state.news.filter(n => {
+        if (state.newsCategory === "all") return true;
+        if (state.newsCategory === "saved") return n.saved;
+        return n.category === state.newsCategory;
+      });
+
+      if (items.length === 0) {
+        listEl.innerHTML = `
+          <div class="bg-white rounded-2xl p-6 text-center border border-slate-200 text-xs text-slate-500">
+            Нет новостей в выбранной рубрике.
+          </div>
+        `;
+        return;
+      }
+
+      items.forEach(item => {
+        const card = document.createElement("article");
+        card.className = "bg-white rounded-2xl p-4 shadow-sm border border-slate-200 space-y-2";
+        card.innerHTML = `
+          <div class="flex items-center justify-between gap-2">
+            <span class="px-2.5 py-0.5 rounded-lg bg-blue-50 text-blue-700 font-semibold text-[11px]">${item.category}</span>
+            <span class="text-[11px] text-slate-400">${item.date}</span>
+          </div>
+          <h3 class="font-bold text-sm text-slate-800 leading-snug" style="margin:6px 0 0 0;">${item.title}</h3>
+          <p class="text-xs text-slate-600 leading-relaxed" style="margin:6px 0 0 0;">${item.summary}</p>
+          <div class="pt-2 flex items-center justify-between border-t border-slate-100">
+            <span class="text-[11px] text-slate-400">Официальная лента школы</span>
+            <button type="button" data-save-news="${item.id}" class="text-xs font-semibold ${item.saved ? 'text-amber-600' : 'text-slate-500'}">
+              ${item.saved ? "★ В закладках" : "☆ В закладки"}
+            </button>
+          </div>
+        `;
+        listEl.appendChild(card);
+      });
+
+      listEl.querySelectorAll("[data-save-news]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const id = btn.getAttribute("data-save-news");
+          const target = state.news.find(n => n.id === id);
+          if (target) {
+            target.saved = !target.saved;
+            saveState();
+            renderNews();
+            showToast(target.saved ? "Новость сохранена в закладки" : "Убрано из закладок");
+          }
+        });
+      });
+    }
+
+    // ==========================================
+    // 8. ПЕРЕКЛЮЧЕНИЕ ВКЛАДОК И МОДАЛЬНЫХ ОКОН
+    // ==========================================
+    function switchTab(tabName) {
+      state.activeTab = tabName;
+      const views = ["schedule", "grades", "mail", "news"];
+      views.forEach(v => {
+        const el = document.getElementById("view-" + v);
+        if (!el) return;
+        if (v === tabName) el.classList.remove("hidden");
+        else el.classList.add("hidden");
+      });
+
+      document.querySelectorAll(".nav-tab-btn").forEach(btn => {
+        const t = btn.getAttribute("data-tab");
+        if (t === tabName) {
+          btn.className = "nav-tab-btn relative flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-blue-600 font-semibold text-[10px] gap-0.5 bg-blue-50/70";
+        } else {
+          btn.className = "nav-tab-btn relative flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-slate-500 font-medium text-[10px] gap-0.5";
+        }
+      });
+    }
+
+    function openModal(id) {
+      const m = document.getElementById(id);
+      if (m) {
+        m.classList.remove("hidden");
+        m.classList.add("flex");
+      }
+    }
+
+    function closeModal(id) {
+      const m = document.getElementById(id);
+      if (m) {
+        m.classList.add("hidden");
+        m.classList.remove("flex");
+      }
+    }
+
+    // ==========================================
+    // 9. МГНОВЕННЫЙ ЗАПУСК ПРИЛОЖЕНИЯ (БЕЗ ОЖИДАНИЯ ВНЕШНИХ СКРИПТОВ)
+    // ==========================================
+    function initApp() {
+      populateSubjectDropdowns();
+      renderHeaderStats();
+      renderSchedule();
+      renderGrades();
+      renderMail();
+      renderNews();
+      switchTab(state.activeTab || "schedule");
+
+      document.getElementById("btnPrevWeek").addEventListener("click", () => {
+        state.weekOffset = (state.weekOffset || 0) - 1;
+        saveState();
+        renderSchedule();
+        renderHeaderStats();
+      });
+
+      document.getElementById("btnNextWeek").addEventListener("click", () => {
+        state.weekOffset = (state.weekOffset || 0) + 1;
+        saveState();
+        renderSchedule();
+        renderHeaderStats();
+      });
+
+      document.getElementById("btnReturnCurrentWeek").addEventListener("click", () => {
+        state.weekOffset = 0;
+        saveState();
+        renderSchedule();
+        renderHeaderStats();
+        showToast("Возврат к текущей неделе");
+      });
+
+      document.getElementById("btnWholeWeekMode").addEventListener("click", () => {
+        state.scheduleViewMode = state.scheduleViewMode === "week" ? "day" : "week";
+        saveState();
+        renderSchedule();
+        renderHeaderStats();
+      });
+
+      document.querySelectorAll(".nav-tab-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          switchTab(btn.getAttribute("data-tab"));
+        });
+      });
+
+      document.querySelectorAll("[data-close-modal]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          closeModal(btn.getAttribute("data-close-modal"));
+        });
+      });
+
+      document.getElementById("gradeSubjectFilter").addEventListener("change", () => {
+        renderGrades();
+      });
+
+      document.getElementById("btnResetSimGrades").addEventListener("click", () => {
+        state.grades.forEach(g => { g.simScores = []; });
+        saveState();
+        renderGrades();
+        renderHeaderStats();
+        showToast("Прогнозные оценки сброшены");
+      });
+
+      document.querySelectorAll("[data-mail-filter]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          state.mailFilter = btn.getAttribute("data-mail-filter");
+          document.querySelectorAll("[data-mail-filter]").forEach(b => {
+            b.className = b.getAttribute("data-mail-filter") === state.mailFilter
+              ? "flex-1 px-2 py-1.5 rounded-lg bg-white text-slate-800 shadow-sm"
+              : "flex-1 px-2 py-1.5 rounded-lg text-slate-600";
+          });
+          renderMail();
+        });
+      });
+
+      document.getElementById("mailSearchInput").addEventListener("input", (e) => {
+        state.mailSearch = e.target.value;
+        renderMail();
+      });
+
+      document.getElementById("btnComposeMail").addEventListener("click", () => {
+        openModal("modalComposeMail");
+      });
+
+      document.getElementById("composeMailForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const recipient = document.getElementById("mailRecipientInput").value;
+        const subject = document.getElementById("mailSubjectInput").value.trim();
+        const body = document.getElementById("mailBodyInput").value.trim();
+        if (!subject || !body) return;
+
+        state.mails.unshift({
+          id: "mail-" + Date.now(),
+          folder: "sent",
+          sender: "Вы → " + recipient,
+          subject: subject,
+          date: "Только что",
+          unread: false,
+          body: body
+        });
+        document.getElementById("mailSubjectInput").value = "";
+        document.getElementById("mailBodyInput").value = "";
+        saveState();
+        state.mailFilter = "sent";
+        document.querySelectorAll("[data-mail-filter]").forEach(b => {
+          b.className = b.getAttribute("data-mail-filter") === "sent"
+            ? "flex-1 px-2 py-1.5 rounded-lg bg-white text-slate-800 shadow-sm"
+            : "flex-1 px-2 py-1.5 rounded-lg text-slate-600";
+        });
+        renderMail();
+        closeModal("modalComposeMail");
+        showToast("Сообщение отправлено!");
+      });
+
+      document.querySelectorAll("[data-news-cat]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          state.newsCategory = btn.getAttribute("data-news-cat");
+          document.querySelectorAll("[data-news-cat]").forEach(b => {
+            b.className = b.getAttribute("data-news-cat") === state.newsCategory
+              ? "px-3 py-1.5 rounded-xl bg-blue-600 text-white text-xs font-semibold shrink-0"
+              : "px-3 py-1.5 rounded-xl bg-white border border-slate-200 text-slate-700 text-xs font-medium shrink-0";
+          });
+          renderNews();
+        });
+      });
+    }
+
+    initApp();
+    // ==========================================
+    // 10. МОСТ СВЯЗИ С ANDROID WEBVIEW И ПАРСЕР РИСО (БЕЗ ЛИШНИХ КНОПОК)
+    // ==========================================
+    // Вызывается автоматически при старте на телефоне, при смене недели и при свайпе вниз
+    function requestAndroidRisoSync(weekOffset) {
+      if (window.AndroidRisoBridge && typeof window.AndroidRisoBridge.fetchWeekData === "function") {
+        try {
+          window.AndroidRisoBridge.fetchWeekData(Number(weekOffset || 0));
+        } catch (e) {
+          // Работаем с локальным кэшем при отсутствии сети
+        }
+      }
+    }
+
+    // Функция, которую вызывает Android-оболочка после загрузки HTML со страниц РИСО
+    window.onRisoHtmlReceived = function(payload) {
+      if (!payload) return;
+      try {
+        const data = typeof payload === "string" ? JSON.parse(payload) : payload;
+        const parser = new DOMParser();
+
+        // 1. ПАРСЕР РАСПИСАНИЯ (https://riso.sev.gov.ru/journal-app/u.11553)
+        if (data.scheduleHtml) {
+          const doc = parser.parseFromString(data.scheduleHtml, "text/html");
+          const userLabel = doc.querySelector(".navigation-top-item--user .navigation-top-item__label");
+          if (userLabel && userLabel.textContent.trim()) {
+            state.studentName = userLabel.textContent.trim();
+          }
+
+          const dayBlocks = doc.querySelectorAll("#dnevnikDays .dnevnik-day");
+          const targetWeek = Number(data.weekOffset || 0);
+          const weekMap = ensureWeekScheduleExists(targetWeek);
+          const dayKeys = ["Пн", "Вт", "Ср", "Чт", "Пт"];
+
+          dayBlocks.forEach((dayNode, dIdx) => {
+            if (dIdx >= dayKeys.length) return;
+            const dKey = dayKeys[dIdx];
+            const lessonNodes = dayNode.querySelectorAll(".dnevnik-lesson");
+            if (!lessonNodes.length) return;
+
+            const lessonsArr = [];
+            lessonNodes.forEach((lNode, lIdx) => {
+              const numTxt = lNode.querySelector(".dnevnik-lesson__number")?.textContent?.replace(".", "").trim();
+              const timeTxt = lNode.querySelector(".dnevnik-lesson__time")?.textContent?.trim();
+              const subjTxt = lNode.querySelector(".js-rt_licey-dnevnik-subject")?.textContent?.trim();
+              const hwTxt = lNode.querySelector(".dnevnik-lesson__task")?.textContent?.trim();
+              const topicTxt = lNode.querySelector(".js-rt_licey-dnevnik-topic")?.textContent?.trim();
+              const markNode = lNode.querySelector(".dnevnik-mark__value");
+              const markVal = markNode ? parseInt(markNode.getAttribute("value") || markNode.textContent.trim(), 10) : null;
+
+              lessonsArr.push({
+                id: `riso_${targetWeek}_${dKey}_${lIdx}`,
+                num: numTxt || "Доп",
+                time: timeTxt || "",
+                subject: subjTxt || "Урок",
+                room: numTxt ? "Осн." : "Внеур.",
+                hw: hwTxt || "Без задания",
+                topic: topicTxt || "",
+                grade: Number.isFinite(markVal) ? markVal : null
+              });
+            });
+            weekMap[dKey] = lessonsArr;
+          });
+        }
+
+        // 2. ПАРСЕР УСПЕВАЕМОСТИ И ОЦЕНОК (https://riso.sev.gov.ru/journal-student-grades-action/u.11553)
+        if (data.gradesHtml) {
+          const doc = parser.parseFromString(data.gradesHtml, "text/html");
+          const fioEl = doc.querySelector("h1.page-title .subtitle");
+          if (fioEl) {
+            const fullFio = fioEl.textContent.split("·")[0].trim();
+            if (fullFio) state.studentName = fullFio;
+          }
+
+          const subjCells = doc.querySelectorAll("#g0_fio .cell");
+          const markCols = doc.querySelectorAll("#g0_marks .cells_marks");
+          if (subjCells.length) {
+            const newGrades = [];
+            subjCells.forEach((sCell) => {
+              const subjName = sCell.getAttribute("name") || sCell.textContent.trim();
+              const scores = [];
+              markCols.forEach((col) => {
+                const cells = col.querySelectorAll(".cell");
+                cells.forEach((c) => {
+                  if ((c.getAttribute("name") || "") === subjName) {
+                    const raw = c.querySelector(".cell-data")?.textContent?.trim() || "";
+                    const num = parseInt(raw, 10);
+                    if (num >= 2 && num <= 5) scores.push(num);
+                  }
+                });
+              });
+              newGrades.push({ subject: subjName, scores: scores, simScores: [] });
+            });
+            state.grades = newGrades;
+            populateSubjectDropdowns();
+          }
+        }
+
+        // 3. ПАРСЕР ОБЪЯВЛЕНИЙ / НОВОСТЕЙ (https://riso.sev.gov.ru/journal-board-action)
+        if (data.boardHtml) {
+          const doc = parser.parseFromString(data.boardHtml, "text/html");
+          const boardItems = doc.querySelectorAll("#board-items .board-item");
+          if (boardItems.length) {
+            const savedIds = new Set(state.news.filter(n => n.saved).map(n => n.id));
+            const parsedNews = [];
+            boardItems.forEach((item, idx) => {
+              const dateTxt = item.querySelector(".board-item__dates")?.textContent?.trim() || "";
+              const titleTxt = item.querySelector(".board-item__title")?.textContent?.trim() || "Объявление";
+              const bodyTxt = item.querySelector(".board-item__content .typography")?.textContent?.trim() || "";
+              const id = "board-" + idx;
+              parsedNews.push({
+                id: id,
+                category: "Школа",
+                date: dateTxt,
+                title: titleTxt,
+                summary: bodyTxt.slice(0, 260) + (bodyTxt.length > 260 ? "..." : ""),
+                saved: savedIds.has(id)
+              });
+            });
+            state.news = parsedNews;
+          }
+        }
+
+        // 4. ПАРСЕР ПОЧТЫ: ПОЛУЧЕННЫЕ И ОТПРАВЛЕННЫЕ (https://riso.sev.gov.ru/journal-messages-action)
+        function parseMsgList(htmlStr, folderName) {
+          if (!htmlStr) return [];
+          const doc = parser.parseFromString(htmlStr, "text/html");
+          const rows = doc.querySelectorAll("tr, .messages-item, .message-row");
+          const out = [];
+          rows.forEach((row, idx) => {
+            const link = row.querySelector('a[href*="journal-messages-view-action"]');
+            if (!link) return;
+            const subjectTxt = link.textContent.trim();
+            const cols = row.querySelectorAll("td");
+            const senderTxt = cols.length >= 2 ? cols[1].textContent.trim() : "Школа";
+            const dateTxt = cols.length >= 3 ? cols[cols.length - 1].textContent.trim() : "";
+            const isUnread = row.classList.contains("unread") || row.classList.contains("new") || row.querySelector(".strong") !== null;
+            out.push({
+              id: `riso_${folderName}_${idx}`,
+              folder: folderName,
+              sender: senderTxt,
+              subject: subjectTxt,
+              date: dateTxt,
+              unread: folderName === "inbox" ? isUnread : false,
+              body: "Нажмите «Сайт», чтобы открыть полную переписку в РИСО."
+            });
+          });
+          return out;
+        }
+
+        if (data.inboxHtml || data.sentHtml) {
+          const inboxList = parseMsgList(data.inboxHtml, "inbox");
+          const sentList = parseMsgList(data.sentHtml, "sent");
+          if (inboxList.length || sentList.length) {
+            state.mails = inboxList.concat(sentList);
+          }
+        }
+
+        saveState();
+        renderHeaderStats();
+        renderSchedule();
+        renderGrades();
+        renderMail();
+        renderNews();
+      } catch (err) {
+        // Ошибка разбора пакета игнорируется, сохраняется текущий кэш
+      }
+    };
+
+    // Обновление свайпом вниз (Pull-to-Refresh) в верхней точке списка
+    (function setupPullToRefresh() {
+      const mainArea = document.getElementById("mainScrollArea");
+      let touchStartY = 0;
+      mainArea.addEventListener("touchstart", (e) => {
+        if (mainArea.scrollTop === 0 && e.touches && e.touches[0]) {
+          touchStartY = e.touches[0].clientY;
+        } else {
+          touchStartY = 0;
+        }
+      }, { passive: true });
+
+      mainArea.addEventListener("touchend", (e) => {
+        if (!touchStartY || mainArea.scrollTop > 0) return;
+        const endY = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0].clientY : 0;
+        if (endY - touchStartY > 85) {
+          requestAndroidRisoSync(state.weekOffset || 0);
+          showToast("Данные дневника обновлены");
+        }
+        touchStartY = 0;
+      }, { passive: true });
+    })();
+
+    requestAndroidRisoSync(state.weekOffset || 0);
+  </script>
+</body>
+</html>
